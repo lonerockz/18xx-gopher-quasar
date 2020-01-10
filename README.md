@@ -1,6 +1,6 @@
 # gopher (18xx-gopher-quasar)
 
-Virtual money manager for 18xx board games with the Quasar front end
+Virtual money manager for 18xx board games
 
 ## Install the dependencies
 ```bash
