@@ -99,7 +99,7 @@ module.exports = function (ctx) {
       manifest: {
         name: 'gopher',
         short_name: 'gopher',
-        description: 'Virtual money manager for 18xx board games',
+        description: '18xx virtual money manager using Quasar front end',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
