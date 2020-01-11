@@ -27,11 +27,11 @@
         animated
       >
         <q-tab-panel name="login">
-          <login-register :tab="tab" />
+          <app-login />
         </q-tab-panel>
 
         <q-tab-panel name="register">
-          <login-register :tab="tab" />
+          <app-register />
         </q-tab-panel>
       </q-tab-panels>
     </q-card>
@@ -46,7 +46,8 @@ export default {
     }
   },
   components: {
-    'login-register': require('components/Auth/LoginRegister.vue').default
+    appRegister: require('components/Auth/Register.vue').default,
+    appLogin: require('components/Auth/Login.vue').default
   }
 }
 </script>
