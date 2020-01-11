@@ -12,15 +12,17 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
+    "@quasar/extras": "^1.4.0",
     "firebase": "^7.6.2",
+    "firebaseui": "^4.4.0",
     "lodash-es": "^4.17.15",
     "quasar": "^1.0.0",
+    "vuelidate": "^0.7.4",
     "vuexfire": "^3.2.1"
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0",
-    "@vue/eslint-config-standard": "^5.0.0",
+    "@vue/eslint-config-standard": "^5.1.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.0.0",
     "eslint-loader": "^3.0.0",
