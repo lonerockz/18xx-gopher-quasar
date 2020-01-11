@@ -5,13 +5,17 @@
     v-select-all
     outlined
     class="col"
-    label="Search">
-
+    label="Search"
+  >
     <template v-slot:append>
-      <q-icon v-if="searchField !== ''" name="close" @click="searchField = ''" class="cursor-pointer" />
+      <q-icon
+        v-if="searchField !== ''"
+        name="close"
+        @click="searchField = ''"
+        class="cursor-pointer"
+      />
       <q-icon name="search" />
     </template>
-
   </q-input>
 </template>
 

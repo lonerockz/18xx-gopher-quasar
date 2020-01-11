@@ -7,19 +7,21 @@
     <div>
       <list-header
         v-if="!settings.showTasksInOneList"
-        bgColor="bg-orange-4"
-        >Todo</list-header>
+        bg-color="bg-orange-4"
+      >
+        Todo
+      </list-header>
 
       <q-list
         separator
-        bordered>
-
+        bordered
+      >
         <task
           v-for="(task, key) in tasksTodo"
           :key="key"
           :task="task"
-          :id="key"></task>
-
+          :id="key"
+        />
       </q-list>
     </div>
   </transition>

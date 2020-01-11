@@ -1,13 +1,16 @@
 <template>
   <q-card-section class="row">
-    <div class="text-h6"><slot></slot></div>
+    <div class="text-h6">
+      <slot />
+    </div>
     <q-space />
     <q-btn
       v-close-popup
       flat
       round
       dense
-      icon="close" />
+      icon="close"
+    />
   </q-card-section>
 </template>
 

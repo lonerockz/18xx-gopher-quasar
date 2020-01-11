@@ -1,29 +1,27 @@
 <template>
   <q-card>
-
     <modal-header>Edit Task</modal-header>
 
     <form @submit.prevent="submitForm">
       <q-card-section>
-
         <modal-task-name
           :name.sync="taskToSubmit.name"
-          ref="modalTaskName" />
+          ref="modalTaskName"
+        />
 
         <modal-due-date
-          :dueDate.sync="taskToSubmit.dueDate"
-          @clear="clearDueDate" />
+          :due-date.sync="taskToSubmit.dueDate"
+          @clear="clearDueDate"
+        />
 
         <modal-due-time
           v-if="taskToSubmit.dueDate"
-          :dueTime.sync="taskToSubmit.dueTime" />
-
+          :due-time.sync="taskToSubmit.dueTime"
+        />
       </q-card-section>
 
-      <modal-buttons></modal-buttons>
-
+      <modal-buttons />
     </form>
-
   </q-card>
 </template>
 

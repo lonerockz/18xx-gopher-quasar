@@ -1,26 +1,30 @@
 <template>
   <q-page>
-
     <div class="q-pa-md absolute full-width full-height column">
       <div class="row q-mb-lg">
         <search />
         <sort />
       </div>
 
-      <p v-if="search && !Object.keys(tasksTodo).length && !Object.keys(tasksCompleted).length">No search results.</p>
+      <p v-if="search && !Object.keys(tasksTodo).length && !Object.keys(tasksCompleted).length">
+        No search results.
+      </p>
 
       <q-scroll-area class="q-scroll-area-tasks">
         <no-tasks
-          v-if="!Object.keys(tasksTodo).length && !search && !settings.showTasksInOneList"></no-tasks>
+          v-if="!Object.keys(tasksTodo).length && !search && !settings.showTasksInOneList"
+        />
 
         <tasks-todo
           v-if="Object.keys(tasksTodo).length"
-          :tasksTodo="tasksTodo" />
+          :tasks-todo="tasksTodo"
+        />
 
         <tasks-completed
           v-if="Object.keys(tasksCompleted).length"
-          :tasksCompleted="tasksCompleted"
-          class="q-mb-xl" />
+          :tasks-completed="tasksCompleted"
+          class="q-mb-xl"
+        />
       </q-scroll-area>
 
       <div class="absolute-bottom text-center q-mb-lg no-pointer-events">

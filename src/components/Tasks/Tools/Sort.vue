@@ -7,7 +7,8 @@
     class="col q-ml-sm"
     filled
     label="Sort by"
-    stack-label />
+    stack-label
+  />
 </template>
 
 <script>

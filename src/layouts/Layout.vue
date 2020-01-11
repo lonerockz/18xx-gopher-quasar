@@ -2,7 +2,6 @@
   <q-layout view="hHh lpR fFf">
     <q-header elevated>
       <q-toolbar>
-
         <q-toolbar-title class="absolute-center">
           Awesome Todo
         </q-toolbar-title>
@@ -13,7 +12,8 @@
           flat
           icon-right="account_circle"
           label="Login"
-          class="absolute-right" />
+          class="absolute-right"
+        />
 
         <q-btn
           v-else
@@ -21,8 +21,8 @@
           flat
           icon-right="account_circle"
           label="Logout"
-          class="absolute-right" />
-
+          class="absolute-right"
+        />
       </q-toolbar>
     </q-header>
 
@@ -33,7 +33,8 @@
           :key="nav.label"
           :to="nav.to"
           :icon="nav.icon"
-          :label="nav.label" />
+          :label="nav.label"
+        />
       </q-tabs>
     </q-footer>
 
@@ -45,7 +46,9 @@
       content-class="bg-primary"
     >
       <q-list dark>
-        <q-item-label header>Navigation</q-item-label>
+        <q-item-label header>
+          Navigation
+        </q-item-label>
 
         <q-item
           v-for="nav in navs"
@@ -53,7 +56,8 @@
           :to="nav.to"
           class="text-grey-4"
           exact
-          clickable>
+          clickable
+        >
           <q-item-section avatar>
             <q-icon :name="nav.icon" />
           </q-item-section>
@@ -61,7 +65,6 @@
             <q-item-label>{{ nav.label }}</q-item-label>
           </q-item-section>
         </q-item>
-
       </q-list>
     </q-drawer>
 

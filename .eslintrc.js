@@ -3,18 +3,21 @@ module.exports = {
 
   parserOptions: {
     parser: 'babel-eslint',
-    sourceType: 'module'
+    sourceType: 'module',
+    // ecmaVersion: 2018
   },
 
   env: {
-    browser: true
+    browser: true,
+    es6: true
   },
 
   extends: [
     // https://eslint.vuejs.org/rules/#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
     'plugin:vue/essential',
-    '@vue/standard'
+    'plugin:vue/strongly-recommended',
+    'standard'
   ],
 
   // required to lint *.vue files
@@ -48,7 +51,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
     'prefer-promise-reject-errors': 'off',
-
+    'vue/require-prop-types': 'off',
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }

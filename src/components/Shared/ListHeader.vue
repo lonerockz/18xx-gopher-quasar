@@ -3,8 +3,9 @@
     dense
     inline-actions
     :class="bgColor"
-    class="list-header text-white text-center">
-    <span class="text-bold text-subtitle1"><slot></slot></span>
+    class="list-header text-white text-center"
+  >
+    <span class="text-bold text-subtitle1"><slot /></span>
   </q-banner>
 </template>
 

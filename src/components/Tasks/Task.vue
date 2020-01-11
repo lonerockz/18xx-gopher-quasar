@@ -4,39 +4,48 @@
     :class="!task.completed ? 'bg-orange-1' : 'bg-green-1'"
     v-touch-hold:1000.mouse="showEditTaskModal"
     clickable
-    v-ripple>
-    <q-item-section side top>
+    v-ripple
+  >
+    <q-item-section
+      side
+      top
+    >
       <q-checkbox
         v-model="task.completed"
-        class="no-pointer-events" />
+        class="no-pointer-events"
+      />
     </q-item-section>
 
     <q-item-section>
       <q-item-label
         :class="{ 'text-strikethrough' : task.completed }"
-        v-html="$options.filters.searchHighlight(task.name, search)">
-      </q-item-label>
+        v-html="$options.filters.searchHighlight(task.name, search)"
+      />
     </q-item-section>
 
     <q-item-section
       v-if="task.dueDate"
-      side>
+      side
+    >
       <div class="row">
         <div class="column justify-center">
           <q-icon
             name="event"
             size="18px"
-            class="q-mr-xs" />
+            class="q-mr-xs"
+          />
         </div>
         <div class="column">
           <q-item-label
             class="row justify-end"
-            caption>
+            caption
+          >
             {{ task.dueDate | niceDate }}
           </q-item-label>
           <q-item-label
             class="row justify-end"
-            caption>
+            caption
+          >
             <small>{{ taskDueTime }}</small>
           </q-item-label>
         </div>
@@ -51,14 +60,16 @@
           round
           dense
           color="primary"
-          icon="edit" />
+          icon="edit"
+        />
         <q-btn
           @click.stop="promptToDelete(id)"
           flat
           round
           dense
           color="red"
-          icon="delete" />
+          icon="delete"
+        />
       </div>
     </q-item-section>
 
@@ -66,9 +77,9 @@
       <edit-task
         @close="showEditTask = false"
         :task="task"
-        :id="id" />
+        :id="id"
+      />
     </q-dialog>
-
   </q-item>
 </template>
 

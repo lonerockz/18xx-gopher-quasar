@@ -5,20 +5,24 @@
     leave-active-class="animated zoomOut"
   >
     <div
-      :class="{ 'q-mt-lg' : !settings.showTasksInOneList }">
+      :class="{ 'q-mt-lg' : !settings.showTasksInOneList }"
+    >
       <list-header
         v-if="!settings.showTasksInOneList"
-        bgColor="bg-green-4">Completed</list-header>
+        bg-color="bg-green-4"
+      >
+        Completed
+      </list-header>
       <q-list
         separator
-        bordered>
-
+        bordered
+      >
         <task
           v-for="(task, key) in tasksCompleted"
           :key="key"
           :task="task"
-          :id="key"></task>
-
+          :id="key"
+        />
       </q-list>
     </div>
   </transition>
