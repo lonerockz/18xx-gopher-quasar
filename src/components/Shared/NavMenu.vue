@@ -16,6 +16,7 @@
           clickable
           :active="menuItem.label === 'Outbox'"
           v-ripple
+          v-if="menuItem.login === loggedIn"
         >
           <q-item-section avatar>
             <q-icon :name="menuItem.icon" />
@@ -35,39 +36,48 @@
 const menuList = [
   {
     icon: 'inbox',
-    label: 'Inbox',
-    separator: true
+    label: 'Games',
+    separator: true,
+    login: true
   },
   {
-    icon: 'send',
-    label: 'Outbox',
-    separator: false
-  },
-  {
-    icon: 'delete',
-    label: 'Trash',
-    separator: false
-  },
-  {
-    icon: 'error',
-    label: 'Spam',
-    separator: true
+    icon: 'inbox',
+    label: 'Games',
+    separator: true,
+    login: false
   },
   {
     icon: 'settings',
     label: 'Settings',
-    separator: false
+    separator: false,
+    login: true
   },
   {
     icon: 'feedback',
     label: 'Send Feedback',
-    separator: false
+    separator: false,
+    login: true
   },
   {
     icon: 'help',
     iconColor: 'primary',
     label: 'Help',
-    separator: false
+    separator: false,
+    login: true
+  },
+  {
+    icon: 'account_circle',
+    iconColor: 'primary',
+    label: 'Logout',
+    separator: false,
+    login: true
+  },
+  {
+    icon: 'account_circle',
+    iconColor: 'primary',
+    label: 'Login',
+    separator: false,
+    login: false
   }
 ]
 import { mapState, mapActions } from 'vuex'
@@ -94,6 +104,9 @@ export default {
   methods: {
     ...mapActions('auth', ['logoutUser']),
     ...mapActions('appState', ['toggleNavMenu'])
+  },
+  mounted () {
+    console.log('this :', this.loggedIn)
   }
 }
 </script>
