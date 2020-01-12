@@ -4,12 +4,21 @@ import { showErrorMessage } from 'src/functions/function-show-error-message'
 
 const state = {
   loggedIn: false,
-  user: null
+  user: false
 }
 
 const mutations = {
   UPDATE_USER (state, user) {
-    state.user = user
+    console.log('user :', user)
+    if (user) {
+      state.user = {
+        email: user.email,
+        username: user.displayName,
+        userID: user.uid
+      }
+    } else {
+      state.user = false
+    }
   },
   setLoggedIn (state, value) {
     state.loggedIn = value
@@ -23,6 +32,13 @@ const actions = {
     firebaseAuth.createUserWithEmailAndPassword(payload.email, payload.password)
       .then(response => {
         console.log('response: ', response)
+        firebaseAuth.currentUser.updateProfile({
+          displayName: payload.username
+        }).then(response => {
+          console.log('response: ', response)
+        }).catch(error => {
+          showErrorMessage(error.message)
+        })
       })
       .catch(error => {
         showErrorMessage(error.message)
@@ -44,16 +60,18 @@ const actions = {
   },
   handleAuthStateChange ({ commit }) {
     firebaseAuth.onAuthStateChanged(user => {
+      console.log('got auth state changed.')
       Loading.hide()
       if (user) {
         commit('setLoggedIn', true)
         commit('UPDATE_USER', user)
         LocalStorage.set('loggedIn', true)
-        this.$router.push('/')
+        this.$router.push('/').catch(err => { console.log('err :', err) })
       } else {
         commit('setLoggedIn', false)
+        commit('UPDATE_USER', false)
         LocalStorage.set('loggedIn', false)
-        this.$router.replace('/auth')
+        this.$router.replace('/auth').catch(err => { console.log('err :', err) })
       }
     })
   }

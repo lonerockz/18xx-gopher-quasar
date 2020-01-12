@@ -27,6 +27,19 @@
     </div>
     <div class="row q-mb-md">
       <q-input
+        @input="$v.$touch()"
+        outlined
+        lazy-rules
+        class="col"
+        v-model.trim="formData.username"
+        label="Desired Username"
+        :rules="[
+          val => $v.formData.username.required || 'Email is required',
+        ]"
+      />
+    </div>
+    <div class="row q-mb-md">
+      <q-input
         v-model="$v.formData.password.$model"
         outlined
         lazy-rules
@@ -83,6 +96,7 @@ export default {
       isPwd: true,
       formData: {
         email: '',
+        username: '',
         password: '',
         repeatPassword: ''
       }
@@ -108,6 +122,9 @@ export default {
         required,
         email
 
+      },
+      username: {
+        required
       },
       password: {
         required,
