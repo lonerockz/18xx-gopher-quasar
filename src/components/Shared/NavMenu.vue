@@ -17,6 +17,7 @@
           :active="menuItem.label === 'Outbox'"
           v-ripple
           v-if="menuItem.login === loggedIn"
+          @click="$router.push(menuItem.route)"
         >
           <q-item-section avatar>
             <q-icon :name="menuItem.icon" />
@@ -38,46 +39,53 @@ const menuList = [
     icon: 'inbox',
     label: 'Games',
     separator: true,
-    login: true
+    login: true,
+    route: '/'
   },
   {
     icon: 'inbox',
     label: 'Games',
     separator: true,
-    login: false
+    login: false,
+    route: '/'
   },
   {
     icon: 'settings',
     label: 'Settings',
     separator: false,
-    login: true
+    login: true,
+    route: '/settings'
   },
   {
     icon: 'feedback',
     label: 'Send Feedback',
     separator: false,
-    login: true
+    login: true,
+    route: '/'
   },
   {
     icon: 'help',
     iconColor: 'primary',
     label: 'Help',
-    separator: false,
-    login: true
+    separator: true,
+    login: true,
+    route: '/settings/help'
   },
   {
     icon: 'account_circle',
     iconColor: 'primary',
     label: 'Logout',
     separator: false,
-    login: true
+    login: true,
+    route: '/auth/logout'
   },
   {
     icon: 'account_circle',
     iconColor: 'primary',
     label: 'Login',
     separator: false,
-    login: false
+    login: false,
+    route: '/auth'
   }
 ]
 import { mapState, mapActions } from 'vuex'

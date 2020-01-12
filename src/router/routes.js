@@ -17,8 +17,14 @@ const routes = [
         component: () => import('pages/PageHelp.vue')
       },
       {
+        path: '/auth/logout',
+        component: () => import('pages/PageAuth.vue'),
+        props: { logout: true }
+      },
+      {
         path: '/auth',
-        component: () => import('pages/PageAuth.vue')
+        component: () => import('pages/PageAuth.vue'),
+        props: { logout: false }
       }
     ]
   }

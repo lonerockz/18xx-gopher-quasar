@@ -39,10 +39,26 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   data () {
     return {
       tab: 'login'
+    }
+  },
+  props: {
+    logout: {
+      default: false,
+      type: Boolean
+    }
+  },
+  methods: {
+    ...mapActions('auth', ['logoutUser'])
+  },
+  created () {
+    console.log('logout :', this.logout)
+    if (this.logout) {
+      this.logoutUser()
     }
   },
   components: {
