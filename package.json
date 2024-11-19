@@ -14,7 +14,7 @@
   "dependencies": {
     "@quasar/extras": "^1.4.0",
     "core-js": "^2.6.11",
-    "firebase": "^7.6.2",
+    "firebase": "^10.9.0",
     "firebaseui": "^4.4.0",
     "lodash-es": "^4.17.15",
     "quasar": "^1.0.0",
